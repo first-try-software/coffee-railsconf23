@@ -7,12 +7,19 @@ class CoffeeMachine
     @driver = driver
   end
 
-  def vend
-    dispense_cup
-    heat_water
-    prepare_grounds
-    dispense_water
-    dispose_of_grounds
+  def vend(drink: :coffee)
+    if drink == :coffee
+      dispense_cup
+      heat_water
+      prepare_grounds
+      dispense_water
+      dispose_of_grounds
+    elsif drink == :tea
+      dispense_cup
+      heat_water
+      dispense_tea_bag
+      dispense_water
+    end
   end
 
   private
@@ -35,5 +42,9 @@ class CoffeeMachine
 
   def dispose_of_grounds
     driver.dispose_of_grounds
+  end
+
+  def dispense_tea_bag
+    driver.dispense_tea_bag
   end
 end

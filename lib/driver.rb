@@ -5,5 +5,6 @@ class Driver
   def heat_water; end
   def prepare_grounds; end
   def dispense_water; end
+  def dispense_tea_bag; end
   def dispose_of_grounds; end
 end

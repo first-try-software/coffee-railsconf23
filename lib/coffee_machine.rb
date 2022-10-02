@@ -8,18 +8,18 @@ class CoffeeMachine
   end
 
   def vend(drink: :coffee)
+    dispense_cup
+    heat_water
+
     if drink == :coffee
-      dispense_cup
-      heat_water
       prepare_grounds
-      dispense_water
-      dispose_of_grounds
     elsif drink == :tea
-      dispense_cup
-      heat_water
       dispense_tea_bag
-      dispense_water
     end
+
+    dispense_water
+
+    dispose_of_grounds if drink == :coffee
   end
 
   private

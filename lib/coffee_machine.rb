@@ -7,7 +7,7 @@ class CoffeeMachine
     @driver = driver
   end
 
-  def vend(drink: :coffee)
+  def vend(drink: :coffee, options: {})
     dispense_cup
     heat_water
 
@@ -18,6 +18,8 @@ class CoffeeMachine
     end
 
     dispense_water
+
+    dispense_sweetener if options[:sweet]
 
     dispose_of_grounds if drink == :coffee
   end
@@ -46,5 +48,9 @@ class CoffeeMachine
 
   def dispense_tea_bag
     driver.dispense_tea_bag
+  end
+
+  def dispense_sweetener
+    driver.dispense_sweetener
   end
 end

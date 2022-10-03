@@ -20,6 +20,7 @@ class CoffeeMachine
     dispense_water
 
     dispense_sweetener if options[:sweet]
+    dispense_cream if options[:creamy]
 
     dispose_of_grounds if drink == :coffee
   end
@@ -52,5 +53,9 @@ class CoffeeMachine
 
   def dispense_sweetener
     driver.dispense_sweetener
+  end
+
+  def dispense_cream
+    driver.dispense_cream
   end
 end

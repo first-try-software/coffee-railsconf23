@@ -85,5 +85,39 @@ RSpec.describe CoffeeMachine do
       expect(driver).to have_received(:dispense_water).ordered
       expect(driver).to have_received(:dispense_sweetener).ordered
     end
+
+    it "adds cream to coffee when requested" do
+      allow(driver).to receive(:dispense_cup)
+      allow(driver).to receive(:heat_water)
+      allow(driver).to receive(:prepare_grounds)
+      allow(driver).to receive(:dispense_water)
+      allow(driver).to receive(:dispense_cream)
+      allow(driver).to receive(:dispose_of_grounds)
+
+      machine.vend(drink: :coffee, options: { creamy: true })
+
+      expect(driver).to have_received(:dispense_cup).ordered
+      expect(driver).to have_received(:heat_water).ordered
+      expect(driver).to have_received(:prepare_grounds).ordered
+      expect(driver).to have_received(:dispense_water).ordered
+      expect(driver).to have_received(:dispense_cream).ordered
+      expect(driver).to have_received(:dispose_of_grounds).ordered
+    end
+
+    it "adds cream to tea when requested" do
+      allow(driver).to receive(:dispense_cup)
+      allow(driver).to receive(:heat_water)
+      allow(driver).to receive(:dispense_tea_bag)
+      allow(driver).to receive(:dispense_water)
+      allow(driver).to receive(:dispense_cream)
+
+      machine.vend(drink: :tea, options: { creamy: true })
+
+      expect(driver).to have_received(:dispense_cup).ordered
+      expect(driver).to have_received(:heat_water).ordered
+      expect(driver).to have_received(:dispense_tea_bag).ordered
+      expect(driver).to have_received(:dispense_water).ordered
+      expect(driver).to have_received(:dispense_cream).ordered
+    end
   end
 end

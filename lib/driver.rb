@@ -8,4 +8,5 @@ class Driver
   def dispense_tea_bag; end
   def dispose_of_grounds; end
   def dispense_sweetener; end
+  def dispense_cream; end
 end

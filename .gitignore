@@ -1,3 +1,7 @@
 coverage/
 tmp/
+<<<<<<< HEAD
+=======
+coverage/
+>>>>>>> 047e033 (REFACTOR: Extract tests for drinks into their corresponding spec files)
 .DS_Store

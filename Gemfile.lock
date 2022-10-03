@@ -10,6 +10,7 @@ GEM
       ruby_parser (~> 3.0)
       sexp_processor (~> 4.1)
     diff-lcs (1.5.0)
+    docile (1.4.0)
     fattr (2.4.0)
     flog (4.6.6)
       path_expander (~> 1.0)
@@ -39,14 +40,22 @@ GEM
     ruby_parser (3.19.1)
       sexp_processor (~> 4.16)
     sexp_processor (4.16.1)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
 
 PLATFORMS
+  arm64-darwin-22
   x86_64-darwin-21
 
 DEPENDENCIES
   churn
   flog
   rspec
+  simplecov
 
 BUNDLED WITH
-   2.3.12
+   2.4.7

@@ -1,5 +1,3 @@
-require_relative "null_beverage"
-
 class BeverageFactory
   def self.build(key, driver, options)
     beverage_class(key).new(driver, options)

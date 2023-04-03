@@ -1,4 +1,10 @@
+require_relative "beverage_factory"
+
 class Beverage
+  def self.prepares(beverage)
+    BeverageFactory.register(beverage, self)
+  end
+
   attr_reader :driver, :options
 
   def initialize(driver, options)

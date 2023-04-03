@@ -1,5 +1,8 @@
 require_relative "driver"
 require_relative "beverage_factory"
+require_relative "cocoa"
+require_relative "coffee"
+require_relative "tea"
 
 class CoffeeMachine
   attr_reader :driver

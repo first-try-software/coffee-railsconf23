@@ -1,16 +1,19 @@
-require_relative "coffee"
-require_relative "tea"
-require_relative "cocoa"
 require_relative "null_beverage"
 
 class BeverageFactory
-  def self.build(beverage, driver, options)
-    klass = beverage.capitalize
+  def self.build(key, driver, options)
+    beverage_class(key).new(driver, options)
+  end
 
-    if Module.const_defined?(klass)
-      Module.const_get(klass).new(driver, options)
-    else
-      NullBeverage.new(driver, options)
-    end
+  def self.register(key, klass)
+    beverages[key] = klass
+  end
+
+  def self.beverage_class(key)
+    beverages[key] || NullBeverage
+  end
+
+  def self.beverages
+    @beverages ||= {}
   end
 end

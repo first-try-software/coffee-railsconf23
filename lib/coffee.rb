@@ -1,6 +1,8 @@
 require_relative "beverage"
 
 class Coffee < Beverage
+  prepares :coffee
+
   def prepare
     dispense_cup
     heat_water

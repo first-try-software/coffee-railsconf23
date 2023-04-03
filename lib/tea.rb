@@ -1,6 +1,8 @@
 require_relative "beverage"
 
 class Tea < Beverage
+  prepares :tea
+
   def prepare
     dispense_cup
     heat_water

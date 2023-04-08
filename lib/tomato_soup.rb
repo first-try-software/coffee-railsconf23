@@ -8,8 +8,8 @@ class TomatoSoup < Beverage
     heat_water
     dispense_condensed_soup
     dispense_water
-    dispense_croutons if options[:crunchy]
-    dispense_hot_sauce if options[:spicy]
+    dispense_croutons if cruncy?
+    dispense_hot_sauce if spicy?
   end
 
   private
@@ -24,5 +24,13 @@ class TomatoSoup < Beverage
 
   def dispense_hot_sauce
     driver.dispense_hot_sauce
+  end
+
+  def cruncy?
+    options[:cruncy]
+  end
+
+  def spicy?
+    options[:spicy]
   end
 end
